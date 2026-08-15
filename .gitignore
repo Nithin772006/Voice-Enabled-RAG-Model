@@ -1,0 +1,47 @@
+# Python Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caching & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# User configurations & environment variables
+.env
+.env.*
+.env.local
+frontend/.env.local
+frontend/.env*.local
+
+# Databases & local storage locks
+data/qdrant_db/
+data/audio_responses/
+data/chunks/
+data/processed/
+data/raw/
+data/*.wav
+
+# Node.js dependencies & builds
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# IDE configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Miscellaneous
+*.log
+.DS_Store
+Thumbs.db
