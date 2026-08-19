@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  voice-rag-api:
+    build: .
+    container_name: voice_rag_api
+    ports:
+      - "8000:8000"
+    environment:
+      - SARVAM_API_KEY=${SARVAM_API_KEY}
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-base
+      - RERANKER_MODEL=BAAI/bge-reranker-v2-m3
+      - LLM_MODEL=Qwen/Qwen2.5-1.5B-Instruct
+    volumes:
+      - ./index_cache:/app/index_cache
+      - ./train:/app/train
+      - ./validation:/app/validation
+    restart: unless-stopped

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice RAG AI — ChatGPT Interface</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="gpt-theme">
+  <div class="gpt-layout">
+    <!-- Sidebar -->
+    <aside class="gpt-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <button type="button" class="new-chat-btn" id="newChatBtn">
+          <span>+</span> New Chat
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <label class="section-label">Pipeline Engine Mode</label>
+        <div class="mode-selector">
+          <button type="button" id="btnModeFast" class="mode-pill active">
+            <span class="mode-icon">⚡</span>
+            <div class="mode-info">
+              <strong>FAST MODE</strong>
+              <small>Sub-50ms QA Search</small>
+            </div>
+          </button>
+          <button type="button" id="btnModeQuality" class="mode-pill">
+            <span class="mode-icon">🎯</span>
+            <div class="mode-info">
+              <strong>QUALITY MODE</strong>
+              <small>Hybrid RAG + LLM</small>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <label class="section-label">Knowledge Base</label>
+        <div class="kb-badge">
+          <span class="kb-icon">📚</span>
+          <span>ai4bharat / MSMARCO-XI</span>
+        </div>
+        <div class="kb-meta">
+          <span>Index: 70,706 chunks</span><br>
+          <span>Languages: Tamil (ta) & English (en)</span>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="profile-avatar">HH</div>
+          <div class="profile-info">
+            <strong>HH Goa 2026</strong>
+            <small>Task 2 AI System</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Content -->
+    <main class="gpt-main">
+      <!-- Top Bar -->
+      <header class="gpt-topbar">
+        <button type="button" class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <div class="model-name">
+          <span id="currentModeLabel">Voice RAG Assistant — FAST MODE</span>
+          <span class="status-indicator">● Online</span>
+        </div>
+      </header>
+
+      <!-- Messages Window -->
+      <div class="gpt-messages-container" id="chatContainer">
+        <div class="gpt-welcome-screen">
+          <div class="welcome-icon">✨</div>
+          <h1>How can I help you today?</h1>
+          <p class="welcome-subtitle">Ask any question in Tamil or English. Powered by low-latency vector retrieval & Indic AI models.</p>
+          
+          <div class="suggestion-grid">
+            <button type="button" class="suggestion-card" data-query="இந்தியாவில் எத்தனை மாவட்டங்கள் உள்ளன?">
+              <strong>இந்தியாவில் எத்தனை மாவட்டங்கள் உள்ளன?</strong>
+              <small>Tamil • General Knowledge</small>
+            </button>
+            <button type="button" class="suggestion-card" data-query="இந்தியாவின் தலைநகரம் என்ன?">
+              <strong>இந்தியாவின் தலைநகரம் என்ன?</strong>
+              <small>Tamil • Geography</small>
+            </button>
+            <button type="button" class="suggestion-card" data-query="What is a corporation?">
+              <strong>What is a corporation?</strong>
+              <small>English • Definitions</small>
+            </button>
+            <button type="button" class="suggestion-card" data-query="இந்தியாவில் அதிகமாக பயிரிடப்படும் பயிர்கள் என்ன?">
+              <strong>இந்தியாவில் அதிகமாக பயிரிடப்படும் பயிர்கள் என்ன?</strong>
+              <small>Tamil • Agriculture</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Input Bar -->
+      <div class="gpt-input-wrapper">
+        <form id="textForm" class="gpt-input-box">
+          <button type="button" id="micBtn" class="gpt-icon-btn mic-btn" title="Speak Query in Tamil or English">
+            🎤
+          </button>
+          <textarea id="queryInput" placeholder="Message Voice RAG Assistant..." rows="1"></textarea>
+          <button type="submit" id="sendBtn" class="gpt-icon-btn send-btn" title="Send message">
+            ➔
+          </button>
+        </form>
+        <div id="recordingStatus" class="gpt-input-disclaimer">
+          Click mic to speak in Tamil or English • Sub-50ms Fast QA Search Engine
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
