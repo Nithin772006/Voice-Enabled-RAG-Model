@@ -1,0 +1,17 @@
+pandas
+pyarrow
+numpy
+scipy
+tqdm
+sentence-transformers
+faiss-cpu
+rank-bm25
+transformers
+accelerate
+bitsandbytes
+safetensors
+torch
+fastapi
+uvicorn
+python-multipart
+httpx

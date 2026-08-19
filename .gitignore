@@ -9,21 +9,34 @@ __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+.cache/
 
 # User configurations & environment variables
 .env
-.env.*
 .env.local
-frontend/.env.local
-frontend/.env*.local
+.env.*.local
+!.env.example
 
-# Databases & local storage locks
+# Large Data & Datasets
+train/*.parquet
+validation/*.parquet
+*.parquet
 data/qdrant_db/
 data/audio_responses/
 data/chunks/
 data/processed/
 data/raw/
 data/*.wav
+
+# Index Cache & Heavy Artifacts
+index_cache/
+scratch/
+
+# Heavy binary/model files
+*.index
+*.pkl
+*.bin
+*.onnx
 
 # Node.js dependencies & builds
 node_modules/
